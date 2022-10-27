@@ -12,4 +12,4 @@ $sql = "DELETE FROM musicas WHERE id = :id";
 $stmt = $con->prepare($sql);
 $stmt->execute([':id' => $id]);
 
-header("Location:./cadastro-musica.php");
+header("Location:./index.php");

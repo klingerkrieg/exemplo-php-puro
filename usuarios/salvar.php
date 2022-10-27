@@ -60,5 +60,5 @@ if ($_POST['id'] == "") {
 			":senha" => $senha
 		]);
 	}
-	header("Location:index.php");
+	header("Location:index.php?id={$_POST['id']}");
 }

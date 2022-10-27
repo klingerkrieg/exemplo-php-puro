@@ -20,10 +20,7 @@ if (isset($_GET['id'])) {
 ?>
 
 
-<div style="float:right;"><?= $_SESSION['email'] ?>
-	|
-	<a href="../auth/logout.php">Logout</a>
-</div>
+<?php include '../home/menu.php'; ?>
 
 
 <h3>Cadastro de Músicas</h3>

@@ -15,11 +15,7 @@ if (isset($_GET['id'])) {
 
 <a href="../index.php">Página de login</a>
 
-<?php if (isset($_SESSION['email'])):?>
-<div style="float:right;"><?= $_SESSION['email'] ?>
-	<a href="logout.php">Logout</a>
-</div>
-<?php endif; ?>
+<?php include '../home/menu.php'; ?>
 
 
 <h3>Cadastro de usuários</h3>

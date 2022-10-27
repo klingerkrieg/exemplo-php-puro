@@ -27,9 +27,9 @@ if ($_POST['id'] == "") {
 	$stmt->bindValue(':genero', $genero);
 	$stmt->bindValue(':ano', $ano);
 	$stmt->execute();
-	#print $con->lastInsertId(); #pegando a id do ultimo inserido
+	$id = $con->lastInsertId(); #pegando a id do ultimo inserido
 
-	header("Location:./cadastro-musica.php");
+	header("Location:./index.php?id=$id");
 } else {
 
 	#SE EU ESTOU ATUALIZANDO/EDITANDO ALGUÉM
@@ -53,5 +53,6 @@ if ($_POST['id'] == "") {
 		":ano" 		=> $_POST['ano']
 
 	]);
+	header("Location:./index.php?id={$_POST['id']}");
 }
-header("Location:./cadastro-musica.php");
+

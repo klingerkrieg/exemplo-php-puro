@@ -1,5 +1,6 @@
 <?php
-$con = new \PDO("sqlite:banco.sqlite");
+#AJUSTE O CAMINHO PARA O BANCO
+$con = new \PDO("sqlite:C:\\xampp\\htdocs\\banco.sqlite");
 
 if (empty($sql)) {
     $sql = " CREATE TABLE IF NOT EXISTS 'usuarios'(
@@ -20,12 +21,7 @@ if (empty($sql)) {
         PRIMARY KEY(id AUTOINCREMENT)
     );";
     $con->exec($sql);
-} else {
 }
-
-
-
-
 
 /**
  * Verifica se uma variável existe, 

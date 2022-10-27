@@ -3,10 +3,6 @@ session_start();
 
 require_once '../conexao.php';
 
-if (isset($_COOKIE["login"])) {
-	Header("Location: ../cadastros.php");
-}
-
 
 $sql = "SELECT * FROM usuarios 
 		WHERE email = :email AND senha = :senha";
@@ -20,6 +16,7 @@ $stmt->execute();
 
 $rw = $stmt->fetch(\PDO::FETCH_ASSOC);
 
+
 if ($rw == null) {
 	#se nao encontrou ninguem com aquele email e senha
 	$_SESSION["msg"] = "E-mail ou senha incorreta";
@@ -30,5 +27,5 @@ if ($rw == null) {
 	if (!isset($_COOKIE["login"])) {
 		setcookie("login", $_SESSION['id'], time() + 3600); //1 hora
 	}
-	Header("Location: ../cadastros.php");
+	Header("Location: ../home/index.php");
 }
