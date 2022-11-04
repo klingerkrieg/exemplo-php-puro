@@ -1,17 +1,3 @@
-<?php
-session_start();
-
-require_once '../conexao.php';
-
-$rw = [];
-if (isset($_GET['id'])) {
-	$stmt = $con->query("SELECT * FROM usuarios WHERE id = :id");
-	$stmt->bindValue(':id', $_GET['id']);
-	$stmt->execute();
-	$rw = $stmt->fetch(\PDO::FETCH_ASSOC);
-	#print_r($rw);
-}
-?>
 
 <a href="../index.php">Página de login</a>
 
@@ -23,14 +9,14 @@ if (isset($_GET['id'])) {
 
 <form action="salvar.php" method="POST">
 
-	<input type="hidden" name="id" value="<?= _v($rw, 'id') ?>">
+	<input type="hidden" name="id" value="">
 
 	<label>Nome
-		<input name="nome" value="<?= _v($rw, 'nome') ?>">
+		<input name="nome" value="">
 	</label> <br />
 
 	<label>E-mail
-		<input name="email" value="<?= _v($rw, 'email') ?>">
+		<input name="email" value="">
 	</label> <br />
 
 	<label>Senha
@@ -40,6 +26,3 @@ if (isset($_GET['id'])) {
 	<button>Enviar</button>
 
 </form>
-
-
-<?php include 'listar.php' ?>

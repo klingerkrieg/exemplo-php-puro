@@ -4,7 +4,11 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == "") {
 	Header("Location:../index.php");
 }
 
-$stmt = $con->query("SELECT * FROM musicas ORDER BY nome, artista");
+
+$sql = "SELECT * FROM musicas WHERE usuario_id = :usuario_id ORDER BY nome, artista";
+
+$stmt = $con->prepare($sql);
+$stmt->execute(['usuario_id' => $_SESSION['id']]); 
 
 print "<ul>";
 while ($rw = $stmt->fetch(\PDO::FETCH_ASSOC)) {

@@ -1,6 +1,6 @@
 <?php
 #AJUSTE O CAMINHO PARA O BANCO
-$con = new \PDO("sqlite:C:\\xampp\\htdocs\\banco.sqlite");
+$con = new \PDO("sqlite:C:\\xampp73\\htdocs\\exemplo-php-puro\\banco.sqlite");
 
 if (empty($sql)) {
     $sql = " CREATE TABLE IF NOT EXISTS 'usuarios'(
@@ -14,10 +14,12 @@ if (empty($sql)) {
 
     $sql = " CREATE TABLE IF NOT EXISTS 'musicas'(
         id INTEGER,
+		usuario_id INTEGER,
         nome varchar(255) NOT NULL,
         artista varchar(255),
         genero varchar(255),
         ano varchar(4),
+		arquivo varchar(2000),
         PRIMARY KEY(id AUTOINCREMENT)
     );";
     $con->exec($sql);

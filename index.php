@@ -1,10 +1,13 @@
 <?php
+session_start();
 
+#verifica se já está logado
 if (isset($_SESSION['email'])){
-	Header("Location:cadastros.php");
+	#envia para a tela do usuário já logado
+	Header("Location:home/index.php");
 }
 
-//session_start();
+
 #exibe a mensagem e erro
 if (isset($_SESSION['msg'])) {
 	print $_SESSION['msg'];
